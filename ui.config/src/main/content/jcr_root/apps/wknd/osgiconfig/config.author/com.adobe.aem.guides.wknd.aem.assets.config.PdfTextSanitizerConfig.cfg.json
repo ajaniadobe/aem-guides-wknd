@@ -1,11 +1,11 @@
 {
-  "blockRegexes": [
-    "SANDISK,\\s+the\\s+SANDISK\\s+logo,\\s+SANDISK\\s+Optimus,\\s+and\\s+nCache\\s+are\\s+registered\\s+trademarks\\s+or\\s+trademarks\\s+of\\s+Sandisk\\s+Corporation\\s+or\\s+its\\s+affiliates\\s+in\\s+the\\s+U\\.S\\.\\s+and/or\\s+other\\s+countries\\.\\s+Acronis\\s+and\\s+True\\s+Image\\s+are\\s+registered\\s+trademarks\\s+of\\s+Acronis\\s+International\\s+GmbH\\s+in\\s+the\\s+United\\s+States\\s+and\\s+other\\s+countries\\.\\s+Windows,\\s+DirectStorage\\s+and\\s+Microsoft\\s+are\\s+trademarks\\s+of\\s+the\\s+Microsoft\\s+group\\s+of\\s+companies\\.\\s+The\\s+NVMe\\s+word\\s+mark\\s+is\\s+a\\s+trademark\\s+of\\s+NVM\\s+Express,\\s+Inc\\.\\s+PCIe®\\s+is\\s+a\\s+registered\\s+trademark\\s+of\\s+PCI-SIG\\.\\s+All\\s+other\\s+marks\\s+are\\s+the\\s+property\\s+of\\s+their\\s+respective\\s+owners\\.\\s+Product\\s+specifications\\s+subject\\s+to\\s+change\\s+without\\s+notice\\.\\s+Pictures\\s+shown\\s+may\\s+vary\\s+from\\s+actual\\s+products\\.\\s+©\\s+\\d{4}\\s+Sandisk\\s+Corporation\\s+or\\s+its\\s+affiliates\\.\\s+All\\s+rights\\s+reserved\\.",
-    "(?:^|\\n)\\s*1\\s+1GB\\s*=\\s*1\\s+billion\\s+bytes\\s+and\\s+1TB\\s*=\\s*1\\s+trillion\\s+bytes\\..*?\\n\\s*11\\s+Backwards\\s+compatible\\s+with\\s+PCIe®\\s*3\\.0\\s*x4,\\s*3\\.0\\s*x2,\\s*3\\.0\\s*x1,\\s*2\\.0\\s*x4,\\s*2\\.0\\s*x2\\s+and\\s+2\\.0\\s*x1\\.?\\s*(?:\\n|$)"
-  ],
   "headerRegexes": [],
   "footerRegexes": [],
   "pageNumberRegexes": [],
   "footnoteRegexes": [],
+  "blockRegexes": [
+    "(?:^|\\n)\\s*1\\s+1GB\\s*=\\s*1\\s+billion\\s+bytes\\s+and\\s+1TB\\s*=\\s*1\\s+trillion\\s+bytes\\..*?\\n\\s*11\\s+Backwards\\s+compatible\\s+with\\s+PCIe\\S*\\s*3\\.0\\s*x4,\\s*3\\.0\\s*x2,\\s*3\\.0\\s*x1,\\s*2\\.0\\s*x4,\\s*2\\.0\\s*x2\\s+and\\s+2\\.0\\s*x1\\.?\\s*(?:\\n|$)",
+    "SANDISK,\\s+the\\s+SANDISK\\s+logo,\\s+SANDISK\\s+Optimus,\\s+and\\s+nCache\\s+are\\s+registered\\s+trademarks\\s+or\\s+trademarks\\s+of\\s+Sandisk\\s+Corporation\\s+or\\s+its\\s+affiliates\\s+in\\s+the\\s+U\\.S\\.\\s+and/or\\s+other\\s+countries\\.\\s+Acronis\\s+and\\s+True\\s+Image\\s+are\\s+registered\\s+trademarks\\s+of\\s+Acronis\\s+International\\s+GmbH\\s+in\\s+the\\s+United\\s+States\\s+and\\s+other\\s+countries\\.\\s+Windows,\\s+DirectStorage\\s+and\\s+Microsoft\\s+are\\s+trademarks\\s+of\\s+the\\s+Microsoft\\s+group\\s+of\\s+companies\\.\\s+The\\s+NVMe\\s+word\\s+mark\\s+is\\s+a\\s+trademark\\s+of\\s+NVM\\s+Express,\\s+Inc\\.\\s+PCIe\\S*\\s+is\\s+a\\s+registered\\s+trademark\\s+of\\s+PCI-SIG\\.\\s+All\\s+other\\s+marks\\s+are\\s+the\\s+property\\s+of\\s+their\\s+respective\\s+owners\\.\\s+Product\\s+specifications\\s+subject\\s+to\\s+change\\s+without\\s+notice\\.\\s+Pictures\\s+shown\\s+may\\s+vary\\s+from\\s+actual\\s+products\\.\\s+[©©]?\\s*\\d{4}\\s+Sandisk\\s+Corporation\\s+or\\s+its\\s+affiliates\\.\\s+All\\s+rights\\s+reserved\\."
+  ],
   "minRetainedRatio": 0.01
 }

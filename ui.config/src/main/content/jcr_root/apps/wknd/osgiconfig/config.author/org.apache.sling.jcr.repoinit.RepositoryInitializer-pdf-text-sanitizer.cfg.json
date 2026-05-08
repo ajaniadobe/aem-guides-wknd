@@ -1,0 +1,6 @@
+{
+  "scripts": [
+    "create service user pdf-text-sanitizer-service with path system/cq:services/wknd",
+    "set ACL for pdf-text-sanitizer-service\n  allow jcr:read on /content/dam\n  allow rep:write on /content/dam\nend"
+  ]
+}

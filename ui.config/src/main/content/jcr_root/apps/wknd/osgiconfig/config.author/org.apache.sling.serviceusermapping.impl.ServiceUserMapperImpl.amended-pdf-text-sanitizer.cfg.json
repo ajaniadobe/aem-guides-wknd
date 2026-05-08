@@ -1,0 +1,5 @@
+{
+  "user.mapping": [
+    "aem-guides-wknd.core:pdf-text-sanitizer-service=pdf-text-sanitizer-service"
+  ]
+}
