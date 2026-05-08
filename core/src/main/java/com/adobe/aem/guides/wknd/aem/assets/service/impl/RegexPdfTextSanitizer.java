@@ -29,6 +29,10 @@ public class RegexPdfTextSanitizer implements PdfTextSanitizer {
 
         String sanitized = normalize(originalText);
 
+        // Remove exact / multi-line legal blocks first
+        sanitized = removeMatchingBlocks(sanitized, configState.blockPatterns);
+
+        // Then remove line-oriented patterns
         sanitized = removeMatchingLines(sanitized, configState.headerPatterns);
         sanitized = removeMatchingLines(sanitized, configState.footerPatterns);
         sanitized = removeMatchingLines(sanitized, configState.pageNumberPatterns);
@@ -58,6 +62,14 @@ public class RegexPdfTextSanitizer implements PdfTextSanitizer {
     private String normalize(String text) {
         return text.replace("\r\n", "\n").replace('\r', '\n');
     }
+    
+    private String removeMatchingBlocks(String text, List<Pattern> patterns) {
+        String result = text;
+        for (Pattern pattern : patterns) {
+            result = pattern.matcher(result).replaceAll("");
+        }
+        return result;
+    }   
 
     private String removeMatchingLines(String text, List<Pattern> patterns) {
         if (patterns.isEmpty()) {
@@ -79,6 +91,7 @@ public class RegexPdfTextSanitizer implements PdfTextSanitizer {
     }
 
     private static final class ConfigState {
+        private final List<Pattern> blockPatterns;
         private final List<Pattern> headerPatterns;
         private final List<Pattern> footerPatterns;
         private final List<Pattern> pageNumberPatterns;
@@ -86,19 +99,20 @@ public class RegexPdfTextSanitizer implements PdfTextSanitizer {
         private final double minRetainedRatio;
 
         private ConfigState(PdfTextSanitizerConfig config) {
-            this.headerPatterns = compile(config.headerRegexes());
-            this.footerPatterns = compile(config.footerRegexes());
-            this.pageNumberPatterns = compile(config.pageNumberRegexes());
-            this.footnotePatterns = compile(config.footnoteRegexes());
+            this.blockPatterns = compile(config.blockRegexes(), Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+            this.headerPatterns = compile(config.headerRegexes(), 0);
+            this.footerPatterns = compile(config.footerRegexes(), 0);
+            this.pageNumberPatterns = compile(config.pageNumberRegexes(), 0);
+            this.footnotePatterns = compile(config.footnoteRegexes(), 0);
             this.minRetainedRatio = config.minRetainedRatio();
         }
 
-        private static List<Pattern> compile(String[] values) {
+        private static List<Pattern> compile(String[] values, int flags) {
             List<Pattern> patterns = new ArrayList<>();
             if (values != null) {
                 for (String value : values) {
                     if (value != null && !value.isBlank()) {
-                        patterns.add(Pattern.compile(value));
+                        patterns.add(Pattern.compile(value, flags));
                     }
                 }
             }

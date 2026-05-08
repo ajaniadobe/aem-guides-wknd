@@ -47,6 +47,12 @@ public @interface PdfTextSanitizerConfig {
     };
 
     @AttributeDefinition(
+        name = "Block regexes",
+        description = "Regexes for multi-line text blocks to remove from extracted text"
+    )
+    String[] blockRegexes() default {};
+
+    @AttributeDefinition(
         name = "Minimum retained ratio",
         description = "Safety threshold. If sanitized text is too short compared to original, keep original."
     )
